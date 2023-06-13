@@ -1,0 +1,28 @@
+.promo__container {
+  padding: 320px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-image: url('../../images/promo-image.png');
+  background-repeat: no-repeat;
+  background-size: 210px 206px;
+  background-position: center 70px;
+}
+
+@media (min-width: 600px) {
+  .promo__container {
+    padding: 492px 44px 76px;
+
+    background-size: 310px 304px;
+    background-position: center 140px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .promo__container {
+    padding: 75px 70px 75px 70px;
+    align-items: flex-start;
+    background-position: top 75px right 70px;
+  }
+}

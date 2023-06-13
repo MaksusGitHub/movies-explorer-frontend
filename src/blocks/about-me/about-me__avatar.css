@@ -1,0 +1,21 @@
+.about-me__avatar {
+  max-width: 292px;
+  max-height: 352px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  .about-me__avatar {
+    max-width: 255px;
+    max-height: 307px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-me__avatar {
+    max-width: 270px;
+    max-height: 327px;
+  }
+}

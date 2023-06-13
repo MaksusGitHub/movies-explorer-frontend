@@ -1,0 +1,21 @@
+.about-project__container {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+@media (min-width: 600px) {
+  .about-project__container {
+    margin-bottom: 93px;
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-project__container {
+    margin-bottom: 110px;
+    gap: 40px;
+  }
+}
