@@ -1,0 +1,16 @@
+.about-project {
+  padding: 70px 18px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-project {
+    padding: 110px 70px;
+  }
+}

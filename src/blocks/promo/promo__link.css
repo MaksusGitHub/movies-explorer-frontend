@@ -1,0 +1,21 @@
+.promo__link {
+  display: block;
+  margin: 0;
+  padding: 10px 20px;
+  width: max-content;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 3px;
+  color: #fff;
+
+  transition: opacity .5s ease;
+}
+
+.promo__link:hover {
+  opacity: .6;
+}

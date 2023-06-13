@@ -1,0 +1,28 @@
+.techs__element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  min-height: 57px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -.04em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #303030;
+  border-radius: 10px;
+  transition: opacity .2s linear;
+}
+
+.techs__element:hover {
+  opacity: .6;
+}
+
+@media (min-width: 1024px) {
+  .techs__element {
+    min-width: 90px;
+    min-height: 60px;
+    font-size: 14px;
+  }
+}

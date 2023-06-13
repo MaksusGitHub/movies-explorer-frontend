@@ -1,0 +1,23 @@
+.about-me__info {
+  margin: 0;
+  padding-bottom: 40px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+@media (min-width: 600px) {
+  .about-me__info {
+    padding-bottom: 86px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-me__info {
+    padding-bottom: 98px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

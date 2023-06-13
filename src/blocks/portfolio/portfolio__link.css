@@ -1,0 +1,23 @@
+.portfolio__link {
+  display: block;
+  padding-bottom: 19px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media (min-width: 600px) {
+  .portfolio__link {
+    font-size: 28px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio__link {
+    font-size: 30px;
+  }
+}

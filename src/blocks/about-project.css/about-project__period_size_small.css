@@ -1,0 +1,15 @@
+.about-project__period_size_small {
+  min-width: 100px;
+}
+
+@media (min-width: 600px) {
+  .about-project__period_size_small {
+    min-width: 140px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-project__period_size_small {
+    min-width: 228px;
+  }
+}
