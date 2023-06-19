@@ -1,0 +1,23 @@
+.nav__btn-menu-close {
+  padding: 0;
+  min-width: 22px;
+  min-height: 22px;
+  align-self: flex-end;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../images/btn-close.svg');
+  border: none;
+  transition: opacity .2s ease;
+  cursor: pointer;
+}
+
+.nav__btn-menu-close:hover {
+  opacity: .7;
+}
+
+@media (min-width: 1024px) {
+  .nav__btn-menu-close {
+    display: none;
+  }
+}

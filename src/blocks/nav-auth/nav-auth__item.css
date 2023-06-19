@@ -1,0 +1,13 @@
+.nav-auth__item {
+  font-weight: 500;
+  font-size: 10;
+  line-height: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  .nav-auth__item {
+    font-size: 12px;
+  }
+}

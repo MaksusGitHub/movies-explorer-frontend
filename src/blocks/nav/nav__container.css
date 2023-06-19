@@ -1,0 +1,9 @@
+.nav__container {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav__container {
+    display: flex;
+  }
+}

@@ -4,7 +4,7 @@ function Footer() {
   const currentYear = new Date();
 
   return (
-    <footer className='footer'>
+    <footer className='footer root__content'>
       <p className='footer__info'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
       <div className='footer__container'>
         <ul className='footer__links'>

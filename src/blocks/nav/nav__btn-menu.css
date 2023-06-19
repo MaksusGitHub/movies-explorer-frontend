@@ -1,0 +1,22 @@
+.nav__btn-menu {
+  padding: 0;
+  min-width: 40px;
+  min-height: 43px;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../images/btn-menu.svg');
+  border: none;
+  transition: opacity .2s ease;
+  cursor: pointer;
+}
+
+.nav__btn-menu:hover {
+  opacity: .7;
+}
+
+@media (min-width: 1024px) {
+  .nav__btn-menu {
+    display: none;
+  }
+}
