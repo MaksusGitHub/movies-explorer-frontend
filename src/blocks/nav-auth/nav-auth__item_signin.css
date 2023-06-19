@@ -1,0 +1,12 @@
+.nav-auth__item_signin {
+  padding: 5px 12px;
+  color: #000;
+  background-color: #3ddc84;
+  border-radius: 3px;
+}
+
+@media (min-width: 600px) {
+  .nav-auth__item_signin {
+    padding: 8px 20px;
+  }
+}
