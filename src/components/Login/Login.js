@@ -7,7 +7,8 @@ function Login() {
       title='Рады видеть!'
       btnName='Войти'
       help='Ещё не зарегистрированы?'
-      link='Регистрация'
+      linkName='Регистрация'
+      path='/signup'
     >
       <fieldset className='auth-form__fieldset'>
         <label className='auth-form__field'>
