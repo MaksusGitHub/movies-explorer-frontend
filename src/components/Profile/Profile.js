@@ -14,7 +14,7 @@ function Profile() {
               <p className='profile__field-name'>Имя</p>
               <input
                 className='profile__input profile__input_type_name'
-                value={name}
+                defaultValue={name}
               />
               <span className='profile__error'></span>
             </label>
@@ -22,7 +22,7 @@ function Profile() {
             <p className='profile__field-name'>E-mail</p>
               <input
                 className='profile__input profile__input_type_email'
-                value={email}
+                defaultValue={email}
               />
               <span className='profile__error'></span>
             </label>

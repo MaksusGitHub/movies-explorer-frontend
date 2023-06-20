@@ -4,7 +4,7 @@ import './AuthForm.css'
 import logo from '../../images/logo.svg';
 
 function AuthForm(props) {
-  const { title, btnName, help, link } = props;
+  const { title, btnName, help, linkName, path } = props;
 
   return (
     <section className='auth-form root__content'>
@@ -15,10 +15,10 @@ function AuthForm(props) {
       <form className='auth-form__container'>
         {props.children}
         <div className='auth-form__manage-container'>
-          <button className='auth-form__submit-btn'>{btnName}</button>
+          <button className='auth-form__submit-btn' type='submit'>{btnName}</button>
           <p className='auth-form__help'>
             {help}
-            <Link className='auth-form__link' to='/'>{link}</Link>
+            <Link className='auth-form__link' to={path}>{linkName}</Link>
           </p>
         </div>
       </form>

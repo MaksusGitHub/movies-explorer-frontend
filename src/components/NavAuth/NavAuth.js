@@ -6,10 +6,10 @@ function NavAuth() {
     <nav className='nav-auth'>
       <ul className='nav-auth__list'>
         <li>
-          <Link to='/' className='nav-auth__item'>Регистрация</Link>
+          <Link to='/signup' className='nav-auth__item'>Регистрация</Link>
         </li>
         <li>
-          <Link to='/' className='nav-auth__item nav-auth__item_signin'>Войти</Link>
+          <Link to='/signin' className='nav-auth__item nav-auth__item_signin'>Войти</Link>
         </li>
       </ul>
     </nav>

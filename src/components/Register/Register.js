@@ -8,7 +8,8 @@ function Register() {
       title='Добро пожаловать!'
       btnName='Зарегистрироваться'
       help='Уже зарегистрированы?'
-      link='Войти'
+      linkName='Войти'
+      path='/signin'
     >
       <fieldset className='auth-form__fieldset'>
         <label className='auth-form__field'>
