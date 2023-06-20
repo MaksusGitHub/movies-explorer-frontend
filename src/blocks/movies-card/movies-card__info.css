@@ -1,0 +1,10 @@
+.movies-card__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .movies-card__info {
+    margin: 0 14px;
+  }
+}

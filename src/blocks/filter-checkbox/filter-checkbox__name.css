@@ -1,0 +1,12 @@
+.filter-checkbox__name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+}
+
+@media (min-width: 600px) {
+  .filter-checkbox__name {
+    font-size: 13px;
+  }
+}

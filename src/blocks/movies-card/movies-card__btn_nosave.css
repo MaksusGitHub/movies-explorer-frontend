@@ -1,0 +1,7 @@
+.movies-card__btn_nosave {
+  background-image: url('../../images/btn-save-movie.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #EE3465;
+  border-radius: 50%;
+}
