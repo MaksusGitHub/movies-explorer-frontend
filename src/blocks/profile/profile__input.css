@@ -1,0 +1,9 @@
+.profile__input {
+  padding: 0;
+  font-weight: 400;
+  font-size: 11px;
+  color: #fff;
+  background-color: #202020;
+  border: none;
+  text-align: right;
+}
