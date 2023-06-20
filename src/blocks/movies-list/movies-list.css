@@ -1,0 +1,25 @@
+.movies-list {
+  padding: 40px 10px 140px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 300px));
+  justify-content: center;
+  row-gap: 36px;
+  column-gap: 30px;
+}
+
+@media (min-width: 600px) {
+  .movies-list {
+    padding: 70px 30px 166px;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 339px));
+    row-gap: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-list {
+    padding-left: 70px;
+    padding-right: 70px;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
+    row-gap: 58px;
+  }
+}

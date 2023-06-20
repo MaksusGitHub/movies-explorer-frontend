@@ -5,7 +5,7 @@ import Navigation from '../Navigation/Navigation';
 import NavAuth from '../NavAuth/NavAuth';
 
 function Header() {
-  const loggedIn = false;
+  const loggedIn = true;
   return (
     <header className={`header root__content ${loggedIn === false ? 'header_auth' : ''}`}>
       <Link className='header__logo' to='/'>

@@ -1,0 +1,10 @@
+.movies-card__btn_save {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 9px;
+  color: #fff;
+  background-color: #313131;
+  width: 72px;
+  height: 21px;
+  border-radius: 45px;
+}

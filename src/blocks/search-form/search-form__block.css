@@ -1,0 +1,16 @@
+.search-form__block {
+  padding-bottom: 44px;
+  border-bottom: 1px #424242 solid;
+}
+
+@media (min-width: 600px) {
+  .search-form__block {
+    padding-bottom: 109px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-form__block {
+    padding-bottom: 69px;
+  }
+}
