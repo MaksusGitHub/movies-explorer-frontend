@@ -1,0 +1,9 @@
+.auth-form__field {
+  all: unset;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 10px;
+  color: #8B8B8B;
+}

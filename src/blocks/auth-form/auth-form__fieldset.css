@@ -1,0 +1,6 @@
+.auth-form__fieldset {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
