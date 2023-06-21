@@ -1,2 +1,4 @@
 @import url('../../blocks/root/root__content.css');
 @import url('../../blocks/movies-list/movies-list.css');
+@import url('../../blocks/movies-list/movies-list__list.css');
+@import url('../../blocks/movies-list/movies-list__item.css');

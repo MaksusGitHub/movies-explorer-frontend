@@ -3,6 +3,7 @@
 @import url('../../blocks/movies-card/movies-card__btn_save.css');
 @import url('../../blocks/movies-card/movies-card__btn_nosave.css');
 @import url('../../blocks/movies-card/movies-card__btn_del.css');
+@import url('../../blocks/movies-card/movies-card__picture-link.css');
 @import url('../../blocks/movies-card/movies-card__picture.css');
 @import url('../../blocks/movies-card/movies-card__info.css');
 @import url('../../blocks/movies-card/movies-card__title.css');

@@ -3,7 +3,7 @@
 import './MoviesCard.css';
 
 function MoviesCard(props) {
-  const { picture, title, duration } = props;
+  const { picture, title, duration, trailerLink } = props;
   const isSaved = false;
   const variable = false;
   // const location = useLocation();
@@ -16,7 +16,9 @@ function MoviesCard(props) {
         ? (<button className={`movies-card__btn movies-card__btn${isSaved ? '_save' : '_nosave'}`} type='button' >{variable && 'Сохранить'}</button>)
         : (<button className={`movies-card__btn movies-card__btn_del`} type='button'></button>)
       }
+      <a className='movies-card__picture-link' href={trailerLink} target='_blank' rel='noreferrer'>
       <img className='movies-card__picture' src={picture} alt={picture.name} />
+      </a>
       <div className='movies-card__info'>
         <h2 className='movies-card__title'>{title}</h2>
         <span className='movies-card__duration'>{duration}</span>

@@ -5,11 +5,15 @@ function NavAuth() {
   return (
     <nav className='nav-auth'>
       <ul className='nav-auth__list'>
-        <li>
-          <Link to='/signup' className='nav-auth__item'>Регистрация</Link>
+        <li className='nav-auth__link'>
+          <Link to='/signup' className='nav-auth__item'>
+            <button className='nav-auth__btn'>Регистрация</button>
+          </Link>
         </li>
-        <li>
-          <Link to='/signin' className='nav-auth__item nav-auth__item_signin'>Войти</Link>
+        <li className='nav-auth__link'>
+          <Link to='/signin' className='nav-auth__item nav-auth__item_signin'>
+            <button className='nav-auth__btn'>Войти</button>
+          </Link>
         </li>
       </ul>
     </nav>
