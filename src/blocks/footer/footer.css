@@ -1,5 +1,6 @@
 .footer {
-  padding: 79px 10px 20px;
+  padding: 61px 10px 20px;
+  /* 79 */
   display: flex;
   flex-direction: column;
   align-items: center;

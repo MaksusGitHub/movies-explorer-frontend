@@ -15,15 +15,3 @@
 .portfolio__item:hover {
   opacity: .6;
 }
-
-@media (min-width: 600px) {
-  .portfolio__item {
-    background-size: 27px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .portfolio__item {
-    background-size: 29px;
-  }
-}

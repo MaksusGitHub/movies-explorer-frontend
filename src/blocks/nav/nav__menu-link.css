@@ -10,7 +10,7 @@
   opacity: .7;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .nav__menu-link {
     font-weight: 400;
     font-size: 14px;

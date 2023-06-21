@@ -8,7 +8,7 @@
 
 @media (min-width: 600px) {
   .about-me__info {
-    padding-bottom: 86px;
+    padding-bottom: 66px;
     font-size: 12px;
     line-height: 18px;
   }
@@ -16,7 +16,7 @@
 
 @media (min-width: 1024px) {
   .about-me__info {
-    padding-bottom: 98px;
+    padding-bottom: 80px;
     font-size: 14px;
     line-height: 22px;
   }
