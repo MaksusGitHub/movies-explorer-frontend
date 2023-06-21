@@ -16,7 +16,7 @@ function MoviesCard(props) {
         ? (<button className={`movies-card__btn movies-card__btn${isSaved ? '_save' : '_nosave'}`} type='button' >{variable && 'Сохранить'}</button>)
         : (<button className={`movies-card__btn movies-card__btn_del`} type='button'></button>)
       }
-      <img className='movies-card__picture' src={picture} alt='Постер' />
+      <img className='movies-card__picture' src={picture} alt={picture.name} />
       <div className='movies-card__info'>
         <h2 className='movies-card__title'>{title}</h2>
         <span className='movies-card__duration'>{duration}</span>
