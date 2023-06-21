@@ -15,3 +15,9 @@
 .profile__save-btn:hover {
   opacity: .7;
 }
+
+.profile__save-btn:disabled {
+  cursor: auto;
+  opacity: 1;
+  background-color: lightsteelblue;
+}

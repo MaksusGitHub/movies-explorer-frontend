@@ -15,3 +15,9 @@
 .auth-form__submit-btn:hover {
   opacity: .7;
 }
+
+.auth-form__submit-btn:disabled {
+  cursor: auto;
+  opacity: 1;
+  background-color: lightsteelblue;
+}
