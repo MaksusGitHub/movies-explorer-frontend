@@ -30,6 +30,8 @@ function Profile() {
                       name='name'
                       value={user.name}
                       onChange={handleChange}
+                      minLength='2'
+                      maxLength='40'
                     />
                   ) : (
                     <p className='profile__text'>{user.name}</p>

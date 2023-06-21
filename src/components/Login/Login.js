@@ -18,6 +18,7 @@ function Login() {
             name='email'
             type='email'
             placeholder='E-mail'
+            required
           />
           <span className='auth-form__error'></span>
         </label>
@@ -28,6 +29,7 @@ function Login() {
             name='password'
             type='password'
             placeholder='Пароль'
+            required
           />
           <span className='auth-form__error'></span>
         </label>
