@@ -9,14 +9,14 @@
   list-style-type: none;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .nav__menu-list {
     margin-top: 110px;
     gap: 28px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .nav__menu-list {
     flex-direction: row;
     margin-top: 0;

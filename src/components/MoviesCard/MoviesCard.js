@@ -1,19 +1,17 @@
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import './MoviesCard.css';
 
 function MoviesCard(props) {
   const { picture, title, duration, trailerLink } = props;
   const isSaved = false;
-  const variable = false;
-  // const location = useLocation();
+  const location = useLocation();
 
 
   return (
     <article className='movies-card'>
-      {/* {location.pathname === '/movies' */}
-      {isSaved === false
-        ? (<button className={`movies-card__btn movies-card__btn${isSaved ? '_save' : '_nosave'}`} type='button' >{variable && 'Сохранить'}</button>)
+      {location.pathname === '/movies'
+        ? (<button className={`movies-card__btn movies-card__btn${isSaved ? '_nosave' : '_save'}`} type='button' >{!isSaved && 'Сохранить'}</button>)
         : (<button className={`movies-card__btn movies-card__btn_del`} type='button'></button>)
       }
       <a className='movies-card__picture-link' href={trailerLink} target='_blank' rel='noreferrer'>

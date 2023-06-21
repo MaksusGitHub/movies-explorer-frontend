@@ -1,4 +1,4 @@
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .nav__menu-link_main {
     display: none;
   }

@@ -11,14 +11,14 @@
   background-color: #202020;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
   .nav__sidebar {
     width: 520px;
     padding: 27px 27px 90px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .nav__sidebar {
     padding: 0;
     width: auto;

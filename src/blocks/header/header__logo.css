@@ -7,3 +7,9 @@
 .header__logo:hover {
   opacity: .6;
 }
+
+@media (min-width: 600px) {
+  .header__logo {
+    align-self: flex-start;
+  }
+}

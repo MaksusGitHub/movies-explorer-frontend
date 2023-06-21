@@ -4,3 +4,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media (min-width: 600px) {
+  .auth-form__fieldset {
+    padding-bottom: 179px;
+  }
+}

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import './Navigation.css'
 import accountIcon from '../../images/account-icon.svg';
@@ -8,6 +8,8 @@ function Navigation() {
 
   const handleToggleMenu = () => setShowMobileMenu(!showMobileMenu);
   const closeMobileMenu = () => setShowMobileMenu(false);
+  
+  const location = useLocation();
 
   return (
     <nav className='nav'>
@@ -17,14 +19,22 @@ function Navigation() {
           <div className='nav__menu-container'>
             <button className='nav__btn-menu-close' type='button' onClick={handleToggleMenu}></button>
             <ul className='nav__menu-list'>
-              <li className='nav__menu-item'>
+              <li className={`nav__menu-item ${location.pathname === '/' && 'nav__menu-item_underscore'}`}>
                 <Link to='/' className='nav__menu-link nav__menu-link_main' onClick={closeMobileMenu}>Главная</Link>
               </li>
-              <li className='nav__menu-item'>
-                <Link to='/movies' className='nav__menu-link' onClick={closeMobileMenu}>Фильмы</Link>
+              <li className={`nav__menu-item ${location.pathname === '/movies' && 'nav__menu-item_underscore'}`}>
+                <Link to='/movies'
+                  className={`nav__menu-link ${location.pathname === '/movies' && 'nav__menu-link_bold'}`}
+                  onClick={closeMobileMenu}>
+                  Фильмы
+                </Link>
               </li>
-              <li className='nav__menu-item'>
-                <Link to='/saved-movies' className='nav__menu-link' onClick={closeMobileMenu}>Сохранённые фильмы</Link>
+              <li className={`nav__menu-item ${location.pathname === '/saved-movies' && 'nav__menu-item_underscore'}`}>
+                <Link to='/saved-movies'
+                  className={`nav__menu-link ${location.pathname === '/saved-movies' && 'nav__menu-link_bold'}`}
+                  onClick={closeMobileMenu}>
+                  Сохранённые фильмы
+                </Link>
               </li>
             </ul>
           </div>

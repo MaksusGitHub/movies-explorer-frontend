@@ -1,19 +1,19 @@
-.nav__menu-item:nth-child(2) {
+.nav__menu-item_underscore {
   margin-bottom: -9px;
   padding-bottom: 7px;
   border-bottom: 2px solid #fff;
   box-sizing: border-box;
 }
 
-@media (min-width: 600px) {
-  .nav__menu-item:nth-child(2) {
+@media (min-width: 400px) {
+  .nav__menu-item_underscore {
     margin-bottom: -6px;
     padding-bottom: 4px;
   }
 }
 
-@media (min-width: 1024px) {
-  .nav__menu-item:nth-child(2) {
+@media (min-width: 768px) {
+  .nav__menu-item_underscore {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
