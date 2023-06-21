@@ -2,17 +2,17 @@ import './AboutProject.css'
 
 function AboutProject() {
   return (
-    <section className='about-project root__content'>
+    <section id='about-project' className='about-project root__content'>
       <h2 className='section-title'>О проекте</h2>
       <div className='about-project__container'>
-        <article>
+        <div className='about-project__article'>
           <h3 className='about-project__title'>Дипломный проект включал 5 этапов</h3>
           <p className='about-project__subtitle'>Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
-        </article>
-        <article>
+        </div>
+        <div className='about-project__article'>
           <h3 className='about-project__title'>На выполнение диплома ушло 5 недель</h3>
           <p className='about-project__subtitle'>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
-        </article>
+        </div>
       </div>
       <div className='about-project__period-container'>
         <figure className='about-project__period about-project__period_size_small'>

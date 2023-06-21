@@ -15,6 +15,9 @@ function Login() {
           E-mail
           <input
             className='auth-form__input'
+            name='email'
+            type='email'
+            placeholder='E-mail'
           />
           <span className='auth-form__error'></span>
         </label>
@@ -22,6 +25,9 @@ function Login() {
           Пароль
           <input
             className='auth-form__input'
+            name='password'
+            type='password'
+            placeholder='Пароль'
           />
           <span className='auth-form__error'></span>
         </label>

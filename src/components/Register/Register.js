@@ -16,6 +16,7 @@ function Register() {
           Имя
           <input
             className='auth-form__input'
+            name='Имя'
             placeholder="Имя"
             minLength="2"
             maxLength="40"
@@ -27,6 +28,7 @@ function Register() {
           E-mail
           <input
             className='auth-form__input'
+            name='email'
             type='email'
             placeholder="E-mail"
             required
@@ -37,6 +39,7 @@ function Register() {
           Пароль
           <input
             className='auth-form__input'
+            name='password'
             type="password"
             placeholder="Пароль"
             required

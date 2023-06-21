@@ -1,0 +1,17 @@
+.profile__save-btn {
+  all: unset;
+  height: 45px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 3px;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.profile__save-btn:hover {
+  opacity: .7;
+}

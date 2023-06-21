@@ -9,7 +9,7 @@ function AuthForm(props) {
   return (
     <section className='auth-form root__content'>
       <Link className='header__logo' to='/'>
-        <img src={logo} alt='Логотип'></img>
+        <img className='header__image' src={logo} alt='Логотип'></img>
       </Link>
       <h1 className='auth-form__title'>{title}</h1>
       <form className='auth-form__container'>
