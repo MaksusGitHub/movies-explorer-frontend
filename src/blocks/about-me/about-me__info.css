@@ -8,16 +8,18 @@
 
 @media (min-width: 600px) {
   .about-me__info {
-    padding-bottom: 66px;
+    padding-bottom: 87px;
     font-size: 12px;
     line-height: 18px;
+    max-width: 364px;
   }
 }
 
 @media (min-width: 1024px) {
   .about-me__info {
-    padding-bottom: 80px;
+    padding-bottom: 97px;
     font-size: 14px;
     line-height: 22px;
+    max-width: 100%;
   }
 }

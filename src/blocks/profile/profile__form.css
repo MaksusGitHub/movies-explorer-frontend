@@ -11,7 +11,15 @@
 
 @media (min-width: 600px) {
   .profile__form {
-    padding: 74px 0 70px;
+    padding: 229px 0 70px;
+    max-width: 410px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__form {
+    justify-content: flex-start;
+    padding: 75px 0 70px;
     max-width: 410px;
   }
 }

@@ -7,6 +7,7 @@
 
 @media (min-width: 600px) {
   .auth-form__fieldset {
-    padding-bottom: 179px;
+    padding-bottom: 91px;
+    gap: 23px;
   }
 }

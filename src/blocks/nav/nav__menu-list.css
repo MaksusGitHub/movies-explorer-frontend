@@ -16,7 +16,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .nav__menu-list {
     flex-direction: row;
     margin-top: 0;

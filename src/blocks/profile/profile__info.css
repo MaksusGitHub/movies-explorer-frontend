@@ -13,6 +13,7 @@
 
 @media (min-width: 1024px) {
   .profile__info {
+    margin-bottom: 224px;
     gap: 123px;
   }
 }
