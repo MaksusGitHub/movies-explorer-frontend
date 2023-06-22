@@ -7,12 +7,12 @@ function NavAuth() {
       <ul className='nav-auth__list'>
         <li className='nav-auth__link'>
           <Link to='/signup' className='nav-auth__item'>
-            <button className='nav-auth__btn'>Регистрация</button>
+            <button type='button' className='nav-auth__btn'>Регистрация</button>
           </Link>
         </li>
         <li className='nav-auth__link'>
           <Link to='/signin' className='nav-auth__item nav-auth__item_signin'>
-            <button className='nav-auth__btn'>Войти</button>
+            <button type='button' className='nav-auth__btn'>Войти</button>
           </Link>
         </li>
       </ul>
