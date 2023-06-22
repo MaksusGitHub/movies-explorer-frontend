@@ -2,3 +2,4 @@
 @import url('../../blocks/auth-form/auth-form__field.css');
 @import url('../../blocks/auth-form/auth-form__input.css');
 @import url('../../blocks/auth-form/auth-form__error.css');
+@import url('../../blocks/auth-form/auth-form__fieldset_login.css');

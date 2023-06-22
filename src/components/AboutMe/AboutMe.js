@@ -12,7 +12,6 @@ function AboutMe() {
           <p className='about-me__info'>Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
           <ul className='about-me__links'>
             <li><a className='about-me__link' href='https://github.com/MaksusGitHub' target='_blank' rel='noreferrer'>Github</a></li>
-            <li><a className='about-me__link' href='https://t.me/makssimuma' target='_blank' rel='noreferrer'>Telegram</a></li>
           </ul>
         </article>
         <img className='about-me__avatar' src={avatar} alt='Аватар' />

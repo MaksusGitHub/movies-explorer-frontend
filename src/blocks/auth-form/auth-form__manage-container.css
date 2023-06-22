@@ -4,3 +4,9 @@
   align-items: center;
   gap: 14px;
 }
+
+@media (min-width: 600px) {
+  .auth-form__manage-container {
+    gap: 17px;
+  }
+}

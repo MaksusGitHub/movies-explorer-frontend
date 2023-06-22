@@ -15,7 +15,14 @@
   opacity: .7;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
+  .nav__btn-menu {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 769px) {
   .nav__btn-menu {
     display: none;
   }

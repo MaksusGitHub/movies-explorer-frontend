@@ -10,7 +10,7 @@ function Login() {
       linkName='Регистрация'
       path='/signup'
     >
-      <fieldset className='auth-form__fieldset'>
+      <fieldset className='auth-form__fieldset auth-form__fieldset_login'>
         <label className='auth-form__field'>
           E-mail
           <input

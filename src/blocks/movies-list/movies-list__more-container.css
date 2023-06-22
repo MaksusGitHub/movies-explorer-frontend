@@ -1,0 +1,4 @@
+.movies-list__more-container {
+  display: flex;
+  justify-content: center;
+}

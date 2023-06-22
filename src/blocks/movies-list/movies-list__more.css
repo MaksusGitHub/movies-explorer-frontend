@@ -1,0 +1,30 @@
+.movies-list__more {
+  all: unset;
+  margin-bottom: 100px;
+  font-weight: 400;
+  font-size: 12px;
+  padding-top: 11px;
+  padding-bottom: 9px;
+  background-color: #2F2F2F;
+  width: 300px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+@media (min-width: 767px) {
+  .movies-list__more {
+    width: 708px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-list__more {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movies-list__more {
+    width: 1140px;
+  }
+}

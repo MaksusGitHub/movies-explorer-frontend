@@ -13,3 +13,10 @@
     padding: 408px 0 60px;
   }
 }
+
+@media (min-width: 1024px) {
+  .not-found {
+    padding: 248px 0 60px;
+    justify-content: flex-start;
+  }
+}
