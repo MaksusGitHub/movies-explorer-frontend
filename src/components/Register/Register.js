@@ -31,6 +31,8 @@ function Register() {
             name='email'
             type='email'
             placeholder="E-mail"
+            minLength="8"
+            maxLength="30"
             required
           />
           <span className='auth-form__error'></span>

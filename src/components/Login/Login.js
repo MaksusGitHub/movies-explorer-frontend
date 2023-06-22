@@ -29,6 +29,8 @@ function Login() {
             name='password'
             type='password'
             placeholder='Пароль'
+            minLength="8"
+            maxLength="30"
             required
           />
           <span className='auth-form__error'></span>

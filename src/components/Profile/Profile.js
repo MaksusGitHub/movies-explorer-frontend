@@ -30,6 +30,7 @@ function Profile() {
                       name='name'
                       value={user.name}
                       onChange={handleChange}
+                      placeholder='Имя'
                       minLength='2'
                       maxLength='40'
                     />
@@ -47,6 +48,7 @@ function Profile() {
                     <input
                       className='profile__input profile__input_type_email'
                       name='email'
+                      placeholder='E-mail'
                       value={user.email}
                       onChange={handleChange}
                     />
