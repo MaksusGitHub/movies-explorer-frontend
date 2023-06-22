@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 
 function MoviesCard(props) {
-  const { picture, title, duration, trailerLink } = props;
+  const { picture, title, duration } = props;
   const isSaved = false;
   const location = useLocation();
 
@@ -14,7 +14,7 @@ function MoviesCard(props) {
         ? (<button className={`movies-card__btn movies-card__btn${isSaved ? '_nosave' : '_save'}`} type='button' >{!isSaved && 'Сохранить'}</button>)
         : (<button className={`movies-card__btn movies-card__btn_del`} type='button'></button>)
       }
-      <a className='movies-card__picture-link' href={trailerLink} target='_blank' rel='noreferrer'>
+      <a className='movies-card__picture-link' href='https://www.youtube.com/watch?v=g85ErgcyqX8' target='_blank' rel='noreferrer'>
       <img className='movies-card__picture' src={picture} alt={picture.name} />
       </a>
       <div className='movies-card__info'>
