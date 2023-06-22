@@ -15,69 +15,67 @@ function App() {
 
   return (
     <div className='root'>
-      <main>
-        <Routes>
-          <Route
-            path='/signup'
-            element={
-              <Register />
-            }
-          />
+      <Routes>
+        <Route
+          path='/signup'
+          element={
+            <Register />
+          }
+        />
 
-          <Route
-            path='/signin'
-            element={<Login />}
-          />
+        <Route
+          path='/signin'
+          element={<Login />}
+        />
 
-          <Route
-            path='/'
-            element={
-              <>
-                <Header />
-                <Main />
-                <Footer />
-              </>
-            }
-          />
+        <Route
+          path='/'
+          element={
+            <>
+              <Header />
+              <Main />
+              <Footer />
+            </>
+          }
+        />
 
-          <Route
-            path='/movies'
-            element={
-              <>
-                <Header />
-                <Movies />
-                <Footer />
-              </>
-            }
-          />
+        <Route
+          path='/movies'
+          element={
+            <>
+              <Header />
+              <Movies />
+              <Footer />
+            </>
+          }
+        />
 
-          <Route
-            path='/saved-movies'
-            element={
-              <>
-                <Header />
-                <SavedMovies />
-                <Footer />
-              </>
-            }
-          />
-          
-          <Route
-            path='/profile'
-            element={
-              <>
-                <Header />
-                <Profile />
-              </>
-            }
-          />
+        <Route
+          path='/saved-movies'
+          element={
+            <>
+              <Header />
+              <SavedMovies />
+              <Footer />
+            </>
+          }
+        />
+        
+        <Route
+          path='/profile'
+          element={
+            <>
+              <Header />
+              <Profile />
+            </>
+          }
+        />
 
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
-        </Routes>
-      </main>
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+      </Routes>
     </div>
   )
 }
