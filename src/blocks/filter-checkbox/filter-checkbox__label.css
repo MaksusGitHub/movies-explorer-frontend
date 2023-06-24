@@ -1,0 +1,12 @@
+.filter-checkbox__label {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+  transition: opacity .2s linear;
+}
+
+.filter-checkbox__label:hover {
+  opacity: .7;
+}

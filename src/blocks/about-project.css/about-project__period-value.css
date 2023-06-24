@@ -1,0 +1,17 @@
+.about-project__period-value {
+  margin: 0;
+  margin-bottom: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+
+  font-weight: 400;
+  font-size: 11px;
+}
+
+@media (min-width: 600px) {
+  .about-project__period-value {
+    margin-bottom: 14px;
+    font-size: 14px;
+    
+  }
+}

@@ -1,0 +1,13 @@
+.nav-auth__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 14px;
+  list-style-type: none;
+}
+
+@media (min-width: 600px) {
+  .nav-auth__list {
+    gap: 30px;
+  }
+}

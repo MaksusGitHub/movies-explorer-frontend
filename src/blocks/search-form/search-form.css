@@ -1,0 +1,17 @@
+.search-form {
+  padding: 74px 10px 11px;
+}
+
+@media (min-width: 600px) {
+  .search-form {
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-form {
+    padding: 70px 70px 10px;
+  }
+}

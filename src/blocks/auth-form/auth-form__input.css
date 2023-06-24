@@ -1,0 +1,18 @@
+.auth-form__input {
+  all: unset;
+  position: relative;
+  margin-top: 10px;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #fff;
+  background-color: #2F2F2F;
+  border-radius: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.auth-form__input:focus {
+  outline: 2px solid #4285F4;
+}

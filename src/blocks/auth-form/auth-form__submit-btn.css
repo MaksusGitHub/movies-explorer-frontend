@@ -1,0 +1,30 @@
+.auth-form__submit-btn {
+  all: unset;
+  height: 45px;
+  width: 260px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  background-color: #4285F4;
+  border-radius: 3px;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.auth-form__submit-btn:hover {
+  opacity: .7;
+}
+
+.auth-form__submit-btn:disabled {
+  cursor: auto;
+  opacity: 1;
+  background-color: lightsteelblue;
+}
+
+@media (min-width: 600px) {
+  .auth-form__submit-btn {
+    font-size: 14px;
+  }
+}

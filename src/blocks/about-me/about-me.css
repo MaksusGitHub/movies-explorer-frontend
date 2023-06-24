@@ -1,0 +1,19 @@
+.about-me {
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 73px;
+  padding-bottom: 52px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .about-me {
+    padding: 90px 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-me {
+    padding: 110px 70px 100px;
+  }
+}

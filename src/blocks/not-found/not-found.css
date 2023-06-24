@@ -1,0 +1,22 @@
+.not-found {
+  padding: 329px 0 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .not-found {
+    padding: 408px 0 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .not-found {
+    padding: 248px 0 60px;
+    justify-content: flex-start;
+  }
+}

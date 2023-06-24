@@ -1,0 +1,12 @@
+.profile__field {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile__field:first-child {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #424242;
+}

@@ -1,0 +1,18 @@
+.movies-list {
+  padding: 40px 10px 62px;
+  display: grid;
+}
+
+@media (min-width: 600px) {
+  .movies-list {
+    padding: 70px 30px 62px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-list {
+    padding-bottom: 76px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}

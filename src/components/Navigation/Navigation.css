@@ -1,0 +1,14 @@
+@import url('../../blocks/nav/nav.css');
+@import url('../../blocks/nav/nav__btn-menu.css');
+@import url('../../blocks/nav/nav__container.css');
+@import url('../../blocks/nav/nav__sidebar.css');
+@import url('../../blocks/nav/nav__menu-container.css');
+@import url('../../blocks/nav/nav__btn-menu-close.css');
+@import url('../../blocks/nav/nav__container_mobile.css');
+@import url('../../blocks/nav/nav__menu-list.css');
+@import url('../../blocks/nav/nav__menu-item_underscore.css');
+@import url('../../blocks/nav/nav__menu-link.css');
+@import url('../../blocks/nav/nav__menu-link_bold.css');
+@import url('../../blocks/nav/nav__menu-link_main.css');
+@import url('../../blocks/nav/nav__account-link.css');
+@import url('../../blocks/nav/nav__account-img.css');

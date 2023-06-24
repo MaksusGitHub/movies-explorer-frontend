@@ -1,0 +1,18 @@
+.about-project__period-caption {
+  font-weight: 400;
+  font-size: 11px;
+  color: #a0a0a0;
+}
+
+@media (min-width: 600px) {
+  .about-project__period-caption {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-project__period-caption {
+    font-weight: 500;
+  }
+}
