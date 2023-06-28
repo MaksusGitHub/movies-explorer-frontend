@@ -1,7 +1,6 @@
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-// import movie_1 from '../../images/movie_1.jpg';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 

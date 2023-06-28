@@ -8,46 +8,78 @@ import Preloader from '../Preloader/Preloader';
 function Movies() {
   const [initialMovies, setInitialMovies] = useState([]);
   const [moviesList, setMoviesList] = useState([]);
+  const [resultMovies, setResultMovies] = useState([]);
+  const [shortMovieToggle, setShortMovieToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   MoviesApi.getMovies()
-  //     .then((res) => setInitialMovies(res))
-  //     .catch(err => console.log(err));
-  // }, [])
-
   useEffect(() => {
-    const localStorageMovies = localStorage.getItem('SearchHistory');
-    if (localStorageMovies) {
-      setMoviesList(JSON.parse(localStorageMovies).resultMovies);
-    }
+    MoviesApi.getMovies()
+      .then((res) => setInitialMovies(res))
+      .catch(err => console.log(err));
   }, [])
 
-  async function handleSearch(inputData) {
+  useEffect(() => {
+    const resultMoviesHistory = localStorage.getItem('resultMovies');
+    const moviesListHistory = localStorage.getItem('moviesList');
+    if (resultMoviesHistory) setResultMovies(JSON.parse(resultMoviesHistory));
+    if (moviesListHistory) setMoviesList(JSON.parse(moviesListHistory));
+  }, [])
+
+  function handleSearch(searchValue) {
     setIsLoading(true);
 
-    let initialMovies;
-    try {
-      initialMovies = await MoviesApi.getMovies();
-      setIsLoading(false);
-    } catch(err) {
-      console.log(err);
-    }
+    // let initialMovies;
+    // try {
+    //   initialMovies = await MoviesApi.getMovies();
+    //   setIsLoading(false);
+    // } catch(err) {
+    //   console.log(err);
+    // }
 
-    let resultMovies = initialMovies.filter(({ nameRU }) => {
-      return nameRU.toLowerCase().includes(inputData.request.toLowerCase());
+    let filteredMoviesList = initialMovies.filter(({ nameRU, nameEN }) => {
+      if (nameRU.toLowerCase().includes(searchValue.toLowerCase())) return true;
+      else if (nameEN.toLowerCase().includes(searchValue.toLowerCase())) return true;
+      return false;
     });
-    setMoviesList(resultMovies);
-    localStorage.setItem('SearchHistory', JSON.stringify({ resultMovies, inputData }));
+    
+    setMoviesList(filteredMoviesList);
+    
+    if (shortMovieToggle) {
+      filteredMoviesList = filteredMoviesList.filter(({ duration }) => {
+        if (duration < 40) return true;
+        return false;
+      })
+    }
+    setResultMovies(filteredMoviesList);
+
+    localStorage.setItem('resultMovies', JSON.stringify(filteredMoviesList));
+    localStorage.setItem('moviesList', JSON.stringify(filteredMoviesList));
+    localStorage.setItem('searchValue', searchValue);
+
+    setIsLoading(false);
+  }
+
+  const handleIsShortMovies = (isShortMovie, currentMoviesList = moviesList) => {
+    setShortMovieToggle(isShortMovie);
+    if (currentMoviesList && isShortMovie) {
+      currentMoviesList = currentMoviesList.filter(({ duration }) => {
+        if (duration < 40) return true;
+        return false;
+      })
+    }
+    setResultMovies(currentMoviesList);
+    
+    localStorage.setItem('resultMovies', JSON.stringify(currentMoviesList));
+    localStorage.setItem('isShortMovie', JSON.stringify(isShortMovie));
   }
 
   return (
     <main>
-      <SearchForm onSubmit={handleSearch} />
+      <SearchForm onSubmit={handleSearch} onChecked={handleIsShortMovies}/>
       {isLoading ? (<Preloader />) : null}
       {!isLoading ?
         (
-          <MoviesCardList cards={moviesList} />
+          <MoviesCardList cards={resultMovies} />
         ) : null}
       {/* <div className='movies-list__more-container'>
         <button type='button' className='movies-list__more'>Ещё</button>
