@@ -81,9 +81,6 @@ function Movies() {
         (
           <MoviesCardList cards={resultMovies} />
         ) : null}
-      {/* <div className='movies-list__more-container'>
-        <button type='button' className='movies-list__more'>Ещё</button>
-      </div> */}
     </main>
 
   )
