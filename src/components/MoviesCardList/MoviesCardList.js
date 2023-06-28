@@ -12,8 +12,6 @@ function MoviesCardList({ cards }) {
   const [cardPosition, setCardPosition] = useState(amountShowCards);
 
   useEffect(() => {
-    console.log('amount');
-    console.log(cards.slice(0, amountShowCards));
     setVisibleCards(cards.slice(0, amountShowCards));
   }, [cards])
 

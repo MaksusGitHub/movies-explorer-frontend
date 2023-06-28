@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import NotFound from '../NotFound/NotFound';
 import './App.css';
@@ -10,72 +10,141 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Footer from '../Footer/Footer';
 import Profile from '../Profile/Profile';
 import Login from '../Login/Login';
+import { MainApi } from '../../utils/MainApi';
+import { useEffect, useState } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    tokenCheck();
+  }, [])
+
+  useEffect(() => {
+    MainApi.getProfile().then((res) => {
+      setCurrentUser(res);
+    })
+      .catch((err) => {
+        console.log(err);
+        return;
+      })
+      .finally(() => {
+        setIsLoading(false);
+    })
+  }, [])
+
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      MainApi.getProfile(jwt).then((res) => {
+        if (res) {
+          setLoggedIn(true);
+          navigate('/movies', { replace: true });
+        }
+      });
+    }
+  }
+
+  const handleRegister = ({name, email, password}) => {
+    MainApi.register(name, email, password).then(() => {
+      navigate('/signin', { replace: true });
+    })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+  }
+
+  const handleLogin = ({email, password}) => {
+    MainApi.authorize(email, password).then(() => {
+      setLoggedIn(true);
+      navigate('/movies', { replace: true });
+    })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+  }
 
   return (
     <div className='root'>
-      <Routes>
-        <Route
-          path='/signup'
-          element={
-            <Register />
-          }
-        />
+      <CurrentUserContext.Provider value={currentUser}>
+        {
+          location.pathname === '/' || location.pathname === '/movies' || location.pathname === '/saved-movies' || location.pathname === '/profile' ?
+            <Header loggedIn={loggedIn} isLoading={isLoading} /> : ''
+        }
 
-        <Route
-          path='/signin'
-          element={<Login />}
-        />
+        <Routes>
 
-        <Route
-          path='/'
-          element={
-            <>
-              <Header />
+          <Route
+            path='/signup'
+            element={
+              <Register onSubmit={handleRegister} />
+            }
+          />
+
+          <Route
+            path='/signin'
+            element={<Login onSubmit={handleLogin} />}
+          />
+
+          <Route
+            path='/'
+            element={
               <Main />
-              <Footer />
-            </>
-          }
-        />
+            }
+          />
 
-        <Route
-          path='/movies'
-          element={
-            <>
-              <Header />
-              <Movies />
-              <Footer />
-            </>
-          }
-        />
+          <Route
+            path='/movies'
+            element={
+              <ProtectedRoute
+                component={Movies}
+                loggedIn={loggedIn}
+              />
+            }
+          />
 
-        <Route
-          path='/saved-movies'
-          element={
-            <>
-              <Header />
-              <SavedMovies />
-              <Footer />
-            </>
-          }
-        />
-        
-        <Route
-          path='/profile'
-          element={
-            <>
-              <Header />
-              <Profile />
-            </>
-          }
-        />
+          <Route
+            path='/saved-movies'
+            element={
+              <ProtectedRoute
+                component={SavedMovies}
+                loggedIn={loggedIn}
+              />
+            }
+          />
+          
+          <Route
+            path='/profile'
+            element={
+              <ProtectedRoute 
+                component={Profile}
+                loggedIn={loggedIn}
+              />
+            }
+          />
 
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Routes>
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+
+        </Routes>
+
+        {
+          location.pathname === '/' || location.pathname === '/movies' || location.pathname === '/saved-movies' ?
+            <Footer /> : ''
+        }
+
+      </CurrentUserContext.Provider>
     </div>
   )
 }
