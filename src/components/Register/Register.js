@@ -1,7 +1,25 @@
+import { useState } from 'react';
 import AuthForm from '../AuthForm/AuthForm'
 import './Register.css'
 
-function Register() {
+function Register({ onSubmit }) {
+
+  const [formValue, setFormValue] = useState({ name: '', password: '', email: '' });
+
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormValue({
+      ...formValue,
+      [name]: value
+    });
+  }
+
+  const handleSubmit = () => {
+    onSubmit(formValue);
+  }
 
   return (
     <main>
@@ -11,13 +29,17 @@ function Register() {
         help='Уже зарегистрированы?'
         linkName='Войти'
         path='/signin'
+        onSubmit={handleSubmit}
       >
         <fieldset className='auth-form__fieldset'>
           <label className='auth-form__field'>
             Имя
             <input
               className='auth-form__input'
-              name='Имя'
+              name='name'
+              type='text'
+              value={formValue.name}
+              onChange={handleChange}
               placeholder="Имя"
               minLength="2"
               maxLength="40"
@@ -31,6 +53,8 @@ function Register() {
               className='auth-form__input'
               name='email'
               type='email'
+              value={formValue.email}
+              onChange={handleChange}
               placeholder="E-mail"
               minLength="8"
               maxLength="30"
@@ -44,6 +68,8 @@ function Register() {
               className='auth-form__input'
               name='password'
               type="password"
+              value={formValue.password}
+              onChange={handleChange}
               placeholder="Пароль"
               required
             />
