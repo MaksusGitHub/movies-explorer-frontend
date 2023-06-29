@@ -43,7 +43,7 @@ function App() {
   const tokenCheck = () => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
-      MainApi.getProfile(jwt).then((res) => {
+      MainApi.getContent(jwt).then((res) => {
         if (res) {
           setLoggedIn(true);
           navigate('/movies', { replace: true });
@@ -73,6 +73,29 @@ function App() {
       });
   }
 
+  const handleSignOut = () => {
+    MainApi.logOut().then(() => {
+      setCurrentUser({});
+      setLoggedIn(false);
+      navigate('/')
+      localStorage.clear();
+    })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+  }
+
+  const handleUpdateUser = (user) => {
+    MainApi.updateProfile(user).then((user) => {
+      setCurrentUser(user);
+    })
+    .catch((err) => {
+      console.log(err);
+      return;
+    });
+  }
+
   return (
     <div className='root'>
       <CurrentUserContext.Provider value={currentUser}>
@@ -83,17 +106,20 @@ function App() {
 
         <Routes>
 
-          <Route
-            path='/signup'
-            element={
-              <Register onSubmit={handleRegister} />
-            }
-          />
-
-          <Route
-            path='/signin'
-            element={<Login onSubmit={handleLogin} />}
-          />
+          {!loggedIn ? (
+            <>
+              <Route
+                path='/signup'
+                element={
+                  <Register onSubmit={handleRegister} />
+                }
+              />
+              <Route
+                path='/signin'
+                element={<Login onSubmit={handleLogin} />}
+              />
+            </>
+          ) : null}
 
           <Route
             path='/'
@@ -128,6 +154,8 @@ function App() {
               <ProtectedRoute 
                 component={Profile}
                 loggedIn={loggedIn}
+                onSubmit={handleUpdateUser}
+                onSignOut={handleSignOut}
               />
             }
           />

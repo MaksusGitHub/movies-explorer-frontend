@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  background-color: #202020;
 }
 
 @media (min-width: 400px) {
@@ -24,5 +25,6 @@
     min-height: auto;
     flex-direction: row;
     gap: 50px;
+    background-color: #073042;
   }
 }
