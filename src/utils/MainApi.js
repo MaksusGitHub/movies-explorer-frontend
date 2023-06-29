@@ -41,9 +41,69 @@ class Api {
       })
   }
 
+  logOut() {
+    return fetch(`${this._url}/signout`, {
+      method: 'POST',
+      headers: this._headers,
+      credentials: 'include',
+    })
+
+  }
+
   getProfile() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
+      headers: this._headers,
+      credentials: 'include',
+    })
+      .then((res) => this._checkStatus(res))
+  }
+
+  getContent = (token) => {
+    return fetch(`${this._url}/users/me`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      credentials: 'include',
+    })
+      .then((res) => this._checkStatus(res))
+      .then(res => res);
+  }
+
+  updateProfile(user) {
+    return fetch(`${this._url}/users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      credentials: 'include',
+      body: JSON.stringify(user),
+    })
+      .then((res) => this._checkStatus(res))
+  }
+
+  getMovies() {
+    return fetch(`${this._url}/movies`, {
+      method: 'GET',
+      headers: this._headers,
+      credentials: 'include',
+    })
+      .then((res) => this._checkStatus(res))
+  }
+
+  addMovie(movie) {
+    return fetch(`${this._url}/movies`, {
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: 'include',
+      body: JSON.stringify(movie),
+    })
+      .then((res) => this._checkStatus(res))
+  }
+
+  deleteMovie(movieId) {
+    return fetch(`${this._url}/movies/${movieId}`, {
+      method: 'DELETE',
       headers: this._headers,
       credentials: 'include',
     })
