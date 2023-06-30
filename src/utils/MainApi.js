@@ -112,8 +112,7 @@ class Api {
 }
 
 export const MainApi = new Api({
-  url: 'http://localhost:3001',
-  // url: 'https://api.maksus.movie-explorer.nomoredomains.rocks/',
+  url: 'https://api.maksus.movie-explorer.nomoredomains.rocks',
   headers: {
     'Content-type': 'application/json',
   }
