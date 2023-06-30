@@ -93,7 +93,7 @@ class Api {
 
   addMovie(movie) {
     return fetch(`${this._url}/movies`, {
-      method: 'DELETE',
+      method: 'POST',
       headers: this._headers,
       credentials: 'include',
       body: JSON.stringify(movie),

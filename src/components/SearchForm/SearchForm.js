@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 
 function SearchForm({ onSubmit, onChecked }) {
   const [searchValue, setSearchValue] = useState('');
+  const [isValid, setIsValid] = useState(false);
+  const [isErrorShowed, setIsErrorShowed] = useState(false);
 
   const location = useLocation();
 
@@ -19,7 +21,9 @@ function SearchForm({ onSubmit, onChecked }) {
 
   
   const handleChange = (e) => {
+    setIsErrorShowed(false);
     setSearchValue(e.target.value);
+    handleValidation(e.target.value);
   }
   
   const handleChecked = (checked) => {
@@ -28,18 +32,30 @@ function SearchForm({ onSubmit, onChecked }) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(searchValue);
+    if(isValid) {
+      onSubmit(searchValue);
+    } else {
+      setIsErrorShowed(true);
+    }
+  }
+
+  const handleValidation = (inputValue) => {
+    if (inputValue === '') {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
   }
   
   return (
     <section className='search-form root__content'>
       <div className='search-form__block'>
-        <form className='search-form__container' onSubmit={handleSubmit}>
+        <form className='search-form__container' onSubmit={handleSubmit} noValidate>
           <div className='search-form__input-container'>
             <input
-              className='search-form__input'
+              className={`search-form__input ${isErrorShowed && 'search-form__input_error'}`}
               name='searchValue'
-              placeholder='Фильм'
+              placeholder={!isErrorShowed ? 'Фильм' : 'Нужно ввести ключевое слово'}
               value={searchValue ?? ''}
               onChange={handleChange}
               required

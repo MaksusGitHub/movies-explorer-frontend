@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 let moreStep = window.screen.width > 1279 ? 3 : 2;
 let amountShowCards = window.screen.width > 1279 ? 12 : (window.screen.width > 600 ? 8 : 5);
 
-function MoviesCardList({ cards }) {
+function MoviesCardList({ cards, onAddMovie, onDeleteMovie }) {
   const [visibleCards, setVisibleCards] = useState(cards.slice(0, amountShowCards));
   const [cardPosition, setCardPosition] = useState(amountShowCards);
 
@@ -40,8 +40,10 @@ function MoviesCardList({ cards }) {
           {
             visibleCards.map((card) => (
               <MoviesCard
-                key={card.id}
+                key={card.id ?? card.movieId}
                 movie={card}
+                onAddMovie={onAddMovie}
+                onDeleteMovie={onDeleteMovie}
               />
             ))
           }

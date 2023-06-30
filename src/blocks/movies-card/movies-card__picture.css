@@ -1,6 +1,6 @@
 .movies-card__picture {
   max-width: 300px;
-  max-height: 168px;
+  height: 168px;
   width: 100%;
   object-fit: cover;
   border-radius: 6px;
@@ -9,13 +9,13 @@
 @media (min-width: 600px) {
   .movies-card__picture {
     max-width: 339px;
-    max-height: 190px;
+    height: 190px;
   }
 }
 
 @media (min-width: 1024px) {
   .movies-card__picture {
     max-width: 360px;
-    max-height: 201px;
+    height: 201px;
   }
 }
