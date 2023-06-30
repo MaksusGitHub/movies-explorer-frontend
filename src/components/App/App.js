@@ -14,11 +14,14 @@ import { MainApi } from '../../utils/MainApi';
 import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Popup from '../Popup/Popup';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupTitle, setPopupTitle] = useState('');
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,39 +29,34 @@ function App() {
   useEffect(() => {
     tokenCheck();
   }, [])
-
-  useEffect(() => {
-    MainApi.getProfile().then((res) => {
-      setCurrentUser(res);
-    })
-      .catch((err) => {
-        console.log(err);
-        return;
-      })
-      .finally(() => {
-        setIsLoading(false);
-    })
-  }, [])
-
+  
   const tokenCheck = () => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
-      MainApi.getContent(jwt).then((res) => {
-        if (res) {
-          setLoggedIn(true);
-          navigate('/movies', { replace: true });
-        }
-      });
+      setLoggedIn(true);
     }
   }
+
+  useEffect(() => {
+    if (loggedIn) {
+      MainApi.getProfile().then((res) => {
+        setCurrentUser(res);
+        setLoggedIn(true);
+      })
+        .catch((err) => {
+          console.log(err);
+        })
+    }
+    setIsLoading(false);
+  }, [loggedIn])
+
 
   const handleRegister = ({name, email, password}) => {
     MainApi.register(name, email, password).then(() => {
       navigate('/signin', { replace: true });
     })
       .catch((err) => {
-        console.log(err);
-        return;
+        openPopup(`Не удалось зарегистрироваться. ${err}`);
       });
   }
 
@@ -68,8 +66,7 @@ function App() {
       navigate('/movies', { replace: true });
     })
       .catch((err) => {
-        console.log(err);
-        return;
+        openPopup(`Не удалось авторизоваться. ${err}`);
       });
   }
 
@@ -81,20 +78,43 @@ function App() {
       localStorage.clear();
     })
       .catch((err) => {
-        console.log(err);
-        return;
+        openPopup(`Не удалось выйти из профиля. ${err}`);
       });
   }
 
   const handleUpdateUser = (user) => {
     MainApi.updateProfile(user).then((user) => {
       setCurrentUser(user);
+      openPopup('Изменения сохранены!');
     })
-    .catch((err) => {
-      console.log(err);
-      return;
-    });
+      .catch((err) => {
+        openPopup(`Что-то пошло не так! ${err}`);
+      });
   }
+
+  function openPopup(title) {
+    setPopupTitle(title);
+    setIsPopupOpen(true);
+  }
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  }
+
+  useEffect(() => {
+    if (setIsPopupOpen) {
+      function handleEsc(evt) {
+        if (evt.key === 'Escape') {
+          closePopup();
+        }
+      }
+
+      document.addEventListener('keydown', handleEsc);
+      return () => {
+        document.removeEventListener('keydown', handleEsc);
+      }
+    }
+  }, [isPopupOpen]);
 
   return (
     <div className='root'>
@@ -134,6 +154,7 @@ function App() {
               <ProtectedRoute
                 component={Movies}
                 loggedIn={loggedIn}
+                openPopup={openPopup}
               />
             }
           />
@@ -144,6 +165,7 @@ function App() {
               <ProtectedRoute
                 component={SavedMovies}
                 loggedIn={loggedIn}
+                openPopup={openPopup}
               />
             }
           />
@@ -166,6 +188,8 @@ function App() {
           />
 
         </Routes>
+        
+        <Popup title={popupTitle} isOpen={isPopupOpen} onClose={closePopup}/>
 
         {
           location.pathname === '/' || location.pathname === '/movies' || location.pathname === '/saved-movies' ?

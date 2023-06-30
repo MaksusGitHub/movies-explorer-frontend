@@ -4,4 +4,5 @@
 @import url('../../blocks/search-form/search-form__container.css');
 @import url('../../blocks/search-form/search-form__input-container.css');
 @import url('../../blocks/search-form/search-form__input.css');
+@import url('../../blocks/search-form/search-form__input_error.css');
 @import url('../../blocks/search-form/search-form__btn-submit.css');

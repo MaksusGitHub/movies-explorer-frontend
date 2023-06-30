@@ -19,7 +19,7 @@ function Profile({ onSubmit, onSignOut }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(user);
-    setIsEdit(false)
+    setIsEdit(false);
   }
 
   return (
@@ -73,7 +73,7 @@ function Profile({ onSubmit, onSignOut }) {
             {isEdit ? (
               <>
                 <p className='profile__error'></p>
-                <button className='profile__save-btn' type='submit'>Сохранить</button>
+                <button className='profile__save-btn' type='submit' disabled={!(user.name !== currentUser.name || user.email !== currentUser.email)}>Сохранить</button>
               </>
             ) : (
               <>

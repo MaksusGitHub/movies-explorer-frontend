@@ -1,0 +1,12 @@
+.popup__container {
+  padding: 60px 40px;
+  position: relative;
+  border-radius: 8px;
+  background-color: #202020;
+}
+
+@media (min-width: 600px) {
+  .popup__container {
+    padding: 80px 60px;
+  }
+}
