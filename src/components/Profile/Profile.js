@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './Profile.css'
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
@@ -11,6 +11,11 @@ function Profile({ onSubmit, onSignOut }) {
     email: currentUser.email,
   })
   const [isEdit, setIsEdit] = useState(false);
+
+  useEffect(() => {
+    const { name, email } = currentUser;
+    setUser({name, email});
+  }, [currentUser])
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });

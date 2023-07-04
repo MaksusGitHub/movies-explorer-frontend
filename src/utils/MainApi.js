@@ -57,6 +57,7 @@ class Api {
       credentials: 'include',
     })
       .then((res) => this._checkStatus(res))
+      .then((res) => res);
   }
 
   getContent = (token) => {
@@ -69,7 +70,7 @@ class Api {
       credentials: 'include',
     })
       .then((res) => this._checkStatus(res))
-      .then(res => res);
+      .then((res) => res);
   }
 
   updateProfile(user) {

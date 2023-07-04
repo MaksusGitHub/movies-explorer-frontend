@@ -12,21 +12,14 @@ function Movies(openPopup) {
   const [moviesList, setMoviesList] = useState([]);
   const [resultMovies, setResultMovies] = useState([]);
   const [shortMovieToggle, setShortMovieToggle] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [showMoviesCardList, setShowMoviesCardList] = useState(false);
-
-    // let initialMovies;
-    // try {
-    //   initialMovies = await MoviesApi.getMovies();
-    //   setIsLoading(false);
-    // } catch(err) {
-    //   console.log(err);
-    // }
 
   useEffect(() => {
     MoviesApi.getMovies()
       .then((res) => setInitialMovies(res))
-      .catch(() => openPopup(SERVER_ERROR));
+      .catch(() => openPopup(SERVER_ERROR))
+      .finally(() => setIsLoading(false));
   }, [openPopup])
 
   useEffect(() => {

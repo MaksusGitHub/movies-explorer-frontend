@@ -15,7 +15,6 @@ import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Popup from '../Popup/Popup';
-import Preloader from '../Preloader/Preloader';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,9 +33,12 @@ function App() {
   const tokenCheck = () => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
-      setLoggedIn(true);
-    } else {
-      handleSignOut();
+      MainApi.getContent(jwt).then((res) => {
+        setLoggedIn(true);
+      })
+        .catch((err) => {
+          console.log(err);
+      })
     }
   }
 
@@ -49,8 +51,8 @@ function App() {
         .catch((err) => {
           console.log(err);
         })
+        .finally(setIsLoading(false));
     }
-    setIsLoading(false);
   }, [loggedIn])
 
 
