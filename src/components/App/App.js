@@ -43,16 +43,14 @@ function App() {
   }
 
   useEffect(() => {
-    if (loggedIn) {
-      MainApi.getProfile().then((res) => {
-        setCurrentUser(res);
-        setLoggedIn(true);
+    MainApi.getProfile().then((res) => {
+      setCurrentUser(res);
+      setLoggedIn(true);
+    })
+      .catch((err) => {
+        console.log(err);
       })
-        .catch((err) => {
-          console.log(err);
-        })
-        .finally(setIsLoading(false));
-    }
+      .finally(setIsLoading(false));
   }, [loggedIn])
 
 
