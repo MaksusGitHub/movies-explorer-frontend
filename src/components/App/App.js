@@ -34,11 +34,14 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       MainApi.getContent(jwt).then((res) => {
-        setLoggedIn(true);
+        if (res) {
+          setLoggedIn(true);
+        }
       })
         .catch((err) => {
           console.log(err);
-      })
+        })
+        .finally(() => setIsLoading(false));
     }
   }
 
@@ -50,9 +53,8 @@ function App() {
       .catch((err) => {
         console.log(err);
       })
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   }, [loggedIn])
-
 
   const handleRegister = ({name, email, password}) => {
     MainApi.register(name, email, password).then((res) => {
