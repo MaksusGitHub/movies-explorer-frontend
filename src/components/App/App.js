@@ -35,6 +35,8 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       setLoggedIn(true);
+    } else {
+      handleSignOut();
     }
   }
 
