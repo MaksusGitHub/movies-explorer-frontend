@@ -5,7 +5,7 @@ import { MoviesApi } from '../../utils/MoviesApi';
 import { useEffect, useState } from 'react';
 import Preloader from '../Preloader/Preloader';
 import { MainApi } from '../../utils/MainApi';
-import { BASE_URL, SERVER_ERROR } from '../../utils/constants';
+import { BASE_URL, SERVER_ERROR, SHORT_MOVIE_LENGTH } from '../../utils/constants';
 
 function Movies(openPopup) {
   const [initialMovies, setInitialMovies] = useState([]);
@@ -52,7 +52,7 @@ function Movies(openPopup) {
     
     if (shortMovieToggle) {
       filteredMoviesList = filteredMoviesList.filter(({ duration }) => {
-        if (duration < 40) return true;
+        if (duration < SHORT_MOVIE_LENGTH) return true;
         return false;
       })
     }
@@ -68,7 +68,7 @@ function Movies(openPopup) {
     setShortMovieToggle(isShortMovie);
     if (currentMoviesList && isShortMovie) {
       currentMoviesList = currentMoviesList.filter(({ duration }) => {
-        if (duration < 40) return true;
+        if (duration < SHORT_MOVIE_LENGTH) return true;
         return false;
       })
     }

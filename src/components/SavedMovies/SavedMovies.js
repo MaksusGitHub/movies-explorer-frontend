@@ -4,6 +4,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import Preloader from '../Preloader/Preloader';
 import { MainApi } from '../../utils/MainApi';
+import { SHORT_MOVIE_LENGTH } from '../../utils/constants';
 
 function SavedMovies({ openPopup }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -66,7 +67,7 @@ function SavedMovies({ openPopup }) {
     setShortMovieToggle(isShortMovie);
     if (currentMoviesList && isShortMovie) {
       currentMoviesList = currentMoviesList.filter(({ duration }) => {
-        if (duration < 40) return true;
+        if (duration < SHORT_MOVIE_LENGTH) return true;
         return false;
       })
     }
@@ -89,7 +90,7 @@ function SavedMovies({ openPopup }) {
 
     if (shortMovieToggle) {
       filteredMoviesList = filteredMoviesList.filter(({ duration }) => {
-        if (duration < 40) return true;
+        if (duration < SHORT_MOVIE_LENGTH) return true;
         return false;
       })
     }

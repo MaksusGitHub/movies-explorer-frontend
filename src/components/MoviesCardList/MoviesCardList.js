@@ -3,9 +3,25 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import {
+  DESKTOP_AMOUNT_CARDS,
+  DESKTOP_SCREEN_WIDTH,
+  DESKTOP_SHOWCARD_STEP,
+  MOBILE_AMOUNT_CARDS,
+  TABLET_AMOUNT_CARDS,
+  TABLET_SCREEN_WIDTH,
+  TABLET_SHOWCARD_STEP
+} from '../../utils/constants';
 
-let moreStep = window.screen.width > 1279 ? 3 : 2;
-let amountShowCards = window.screen.width > 1279 ? 12 : (window.screen.width > 600 ? 8 : 5);
+let moreStep = (window.innerWidth > DESKTOP_SCREEN_WIDTH)
+  ? DESKTOP_SHOWCARD_STEP
+  : TABLET_SHOWCARD_STEP;
+
+let amountShowCards = (window.innerWidth > DESKTOP_SCREEN_WIDTH)
+  ? DESKTOP_AMOUNT_CARDS
+  : ((window.innerWidth > TABLET_SCREEN_WIDTH)
+    ? TABLET_AMOUNT_CARDS
+    : MOBILE_AMOUNT_CARDS);
 
 function MoviesCardList({ cards, onAddMovie, onDeleteMovie }) {
   const [visibleCards, setVisibleCards] = useState(cards.slice(0, amountShowCards));
@@ -21,9 +37,11 @@ function MoviesCardList({ cards, onAddMovie, onDeleteMovie }) {
   }, [])
 
   const handleResize = () => {
-    const currentWidth = window.screen.width;
-    moreStep = currentWidth > 1279 ? 3 : 2;
-    amountShowCards = currentWidth > 1279 ? 12 : (currentWidth > 600 ? 8 : 5)
+    const currentWidth = window.innerWidth;
+    moreStep = currentWidth > DESKTOP_SCREEN_WIDTH ? DESKTOP_SHOWCARD_STEP : TABLET_SHOWCARD_STEP;
+    amountShowCards = currentWidth > DESKTOP_SCREEN_WIDTH ?
+      DESKTOP_AMOUNT_CARDS :
+      (currentWidth > TABLET_SCREEN_WIDTH ? TABLET_AMOUNT_CARDS : MOBILE_AMOUNT_CARDS)
   }
 
   const showMore = () => {
