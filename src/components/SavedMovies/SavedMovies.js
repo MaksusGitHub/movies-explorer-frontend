@@ -42,6 +42,9 @@ function SavedMovies({ openPopup }) {
       if (movies.length) {
         setSavedMoviesList(movies);
         setSavedMovies(movies);
+        let searchValueHistory = localStorage.getItem('searchValueSavedMovies');
+        if (searchValueHistory === null) searchValueHistory = '';
+        handleSearch(searchValueHistory, movies);
       }
     })
       .catch((err) => {
@@ -73,10 +76,10 @@ function SavedMovies({ openPopup }) {
     localStorage.setItem('isShortSavedMovie', JSON.stringify(isShortMovie));
   }
 
-  const handleSearch = (searchValue) => {
+  const handleSearch = (searchValue, movies = savedMoviesList) => {
     setIsLoading(true);
 
-    let filteredMoviesList = savedMoviesList.filter(({ nameRU, nameEN }) => {
+    let filteredMoviesList = movies.filter(({ nameRU, nameEN }) => {
       if (nameRU.toLowerCase().includes(searchValue.toLowerCase())) return true;
       else if (nameEN.toLowerCase().includes(searchValue.toLowerCase())) return true;
       return false;

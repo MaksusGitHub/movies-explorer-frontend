@@ -13,6 +13,7 @@ function Movies(openPopup) {
   const [resultMovies, setResultMovies] = useState([]);
   const [shortMovieToggle, setShortMovieToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showMoviesCardList, setShowMoviesCardList] = useState(false);
 
     // let initialMovies;
     // try {
@@ -33,9 +34,11 @@ function Movies(openPopup) {
       const moviesListHistory = localStorage.getItem('moviesList');
       if (resultMoviesHistory) setResultMovies(JSON.parse(resultMoviesHistory));
       if (moviesListHistory) setMoviesList(JSON.parse(moviesListHistory));
+      if (resultMoviesHistory) setShowMoviesCardList(true);
     }, [])
 
   function handleSearch(searchValue) {
+    setShowMoviesCardList(true);
     setIsLoading(true);
 
     let filteredMoviesList = initialMovies.filter(({ nameRU, nameEN }) => {
@@ -129,7 +132,7 @@ function Movies(openPopup) {
     <main>
       <SearchForm onSubmit={handleSearch} onChecked={handleIsShortMovies}/>
       {isLoading ? (<Preloader />) : null}
-      {resultMovies && !isLoading ?
+      {resultMovies && !isLoading && showMoviesCardList ?
         (
           <MoviesCardList cards={resultMovies} onAddMovie={handleAddMovie} onDeleteMovie={handleDeleteMovie} />
         ) : null}

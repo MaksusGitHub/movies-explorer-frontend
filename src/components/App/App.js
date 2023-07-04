@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import NotFound from '../NotFound/NotFound';
 import './App.css';
@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Popup from '../Popup/Popup';
+import Preloader from '../Preloader/Preloader';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -52,8 +53,8 @@ function App() {
 
 
   const handleRegister = ({name, email, password}) => {
-    MainApi.register(name, email, password).then(() => {
-      navigate('/signin', { replace: true });
+    MainApi.register(name, email, password).then((res) => {
+      handleLogin({email, password});
     })
       .catch((err) => {
         openPopup(`Не удалось зарегистрироваться. ${err}`);
@@ -126,20 +127,21 @@ function App() {
 
         <Routes>
 
-          {!loggedIn ? (
-            <>
-              <Route
-                path='/signup'
-                element={
-                  <Register onSubmit={handleRegister} />
-                }
-              />
-              <Route
-                path='/signin'
-                element={<Login onSubmit={handleLogin} />}
-              />
-            </>
-          ) : null}
+          <Route
+            path='/signup'
+            element={!loggedIn ?
+              <Register onSubmit={handleRegister} /> :
+              <Navigate to='/' replace />
+            }
+          />
+
+          <Route
+            path='/signin'
+            element={!loggedIn ?
+              <Login onSubmit={handleLogin} /> :
+              <Navigate to='/' replace />
+            }
+          />
 
           <Route
             path='/'
@@ -154,6 +156,7 @@ function App() {
               <ProtectedRoute
                 component={Movies}
                 loggedIn={loggedIn}
+                isLoading={isLoading}
                 openPopup={openPopup}
               />
             }
@@ -165,6 +168,7 @@ function App() {
               <ProtectedRoute
                 component={SavedMovies}
                 loggedIn={loggedIn}
+                isLoading={isLoading}
                 openPopup={openPopup}
               />
             }
@@ -176,6 +180,7 @@ function App() {
               <ProtectedRoute 
                 component={Profile}
                 loggedIn={loggedIn}
+                isLoading={isLoading}
                 onSubmit={handleUpdateUser}
                 onSignOut={handleSignOut}
               />

@@ -16,6 +16,11 @@ function SearchForm({ onSubmit, onChecked }) {
       if (searchValueHistory) {
         setSearchValue(searchValueHistory);
       }
+    } else if (location.pathname === '/saved-movies') {
+      const searchValueSavedHistory = localStorage.getItem('searchValueSavedMovies');
+      if (searchValueSavedHistory) {
+        setSearchValue(searchValueSavedHistory);
+      }
     }
   }, []);
 
