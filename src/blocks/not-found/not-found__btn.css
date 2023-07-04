@@ -1,3 +1,17 @@
 .not-found__btn {
   all: unset;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 12px;
+  color: #4285F4;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.not-found__btn:hover {
+  opacity: .7;
+}
+
+.not-found__btn {
+  font-size: 14px;
 }
