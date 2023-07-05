@@ -15,7 +15,7 @@ function Navigation() {
     <nav className='nav'>
       <button className='nav__btn-menu' type='button' onClick={handleToggleMenu}></button>
       <div className={`nav__container ${showMobileMenu ? 'nav__container_mobile' : ''}`}>
-        <div className='nav__sidebar'>
+        <div className={`nav__sidebar ${location.pathname !== '/' ? 'nav__sidebar_color' : ''}`}>
           <div className='nav__menu-container'>
             <button className='nav__btn-menu-close' type='button' onClick={handleToggleMenu}></button>
             <ul className='nav__menu-list'>

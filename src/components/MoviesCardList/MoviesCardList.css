@@ -3,3 +3,6 @@
 @import url('../../blocks/movies-list/movies-list__list.css');
 @import url('../../blocks/movies-list/movies-list__item.css');
 @import url('../../blocks/movies-list/movies-list__saved.css');
+@import url('../../blocks/movies-list/movies-list__not-found.css');
+@import url('../../blocks/movies-list/movies-list__more.css');
+@import url('../../blocks/movies-list/movies-list__more-container.css');

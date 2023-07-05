@@ -1,23 +1,36 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './Profile.css'
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Profile() {
+function Profile({ onSubmit, onSignOut }) {
+  const currentUser = useContext(CurrentUserContext);
   const [user, setUser] = useState({
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
+    name: currentUser.name,
+    email: currentUser.email,
   })
   const [isEdit, setIsEdit] = useState(false);
+
+  useEffect(() => {
+    const { name, email } = currentUser;
+    setUser({name, email});
+  }, [currentUser])
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(user);
+    setIsEdit(false);
+  }
+
   return (
     <main>
       <section className='profile root__content'>
-        <form className='profile__form'>
+        <form className='profile__form' onSubmit={handleSubmit}>
           <div className='profile__info'>
             <h1 className='profile__title'>Привет, Виталий!</h1>
             <fieldset className='profile__fieldset'>
@@ -65,13 +78,13 @@ function Profile() {
             {isEdit ? (
               <>
                 <p className='profile__error'></p>
-                <button className='profile__save-btn' type='submit'>Сохранить</button>
+                <button className='profile__save-btn' type='submit' disabled={!(user.name !== currentUser.name || user.email !== currentUser.email)}>Сохранить</button>
               </>
             ) : (
               <>
                 <button className='profile__edit-btn' type='button' onClick={() => setIsEdit(true)}>Редактировать</button>
                 <Link className='profile__exit-link' to='/'>
-                  <button className='profile__exit-btn' type='button'>Выйти из аккаунта</button>
+                    <button className='profile__exit-btn' type='button' onClick={onSignOut}>Выйти из аккаунта</button>
                 </Link>
               </>
             )}
